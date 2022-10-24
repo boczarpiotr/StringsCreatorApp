@@ -1,6 +1,6 @@
 package com.boczar.StringsCreatorApp.util;
 
-public class Multithreading extends Thread {
+public class ThreadsService extends Thread {
 
     public static void main(String[] args) {
 
