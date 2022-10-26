@@ -1,13 +1,23 @@
 package com.boczar.StringsCreatorApp.util;
 
 import com.boczar.StringsCreatorApp.exceptions.ToManyWantedStringsException;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
-//let's say returning unique words works
+@Service
 public class StringsService {
+
+    public static int getNumberOfPossibleStrings(int min, int max, String chars) {
+        int result = 0;
+        for (int i = min; i <= max; i++) {
+            int pow = (int) Math.pow(chars.length(), i);
+            result += pow;
+        }
+        return result;
+    }
 
     public Set<String> getRandomStringsOfChars(String chars, int min, int max, int numberOfWantedStrings) {
         int numberOfPossibleStrings = getNumberOfPossibleStrings(min, max, chars);
@@ -33,32 +43,5 @@ public class StringsService {
             }
             return uniqueStrings;
         }
-    }
-
-    public static int getNumberOfPossibleStrings(int min, int max, String chars) {
-        int result = 0;
-        for (int i = min; i <= max; i++) {
-            int pow = (int) Math.pow(chars.length(), i);
-            result += pow;
-        }
-        return result;
-    }
-
-    public static void main(String[] args) {
-//        int min = 1;
-//        int max = 2;
-//        String chars = "ab";
-//        int numberOfWantedStrings = 7;
-//
-//        StringsService stringsService = new StringsService();
-//        Set<String> randomStringsOfChars = stringsService.getRandomStringsOfChars(chars, min, max, numberOfWantedStrings);
-//        randomStringsOfChars.forEach(System.out::println);
-//
-        int createJobThread = Thread.getAllStackTraces().keySet().stream()
-                .filter(e -> e.getState().equals(Thread.State.RUNNABLE))
-                .filter(e -> e.getName().contains("createJobThread"))
-                .toList()
-                .size();
-        System.out.println(createJobThread); //hmmmmmmmmm
     }
 }
