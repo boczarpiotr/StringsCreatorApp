@@ -1,16 +1,11 @@
 package com.boczar.StringsCreatorApp.util;
 
-import org.apache.logging.log4j.util.Strings;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.HashSet;
 import java.util.Set;
 
 @Service
@@ -31,7 +26,7 @@ public class FileService {
         // file is created at this point
         BufferedWriter writer = new BufferedWriter(new FileWriter(newFile));
 
-        for(String s: strings){
+        for (String s : strings) {
             writer.write(s + "\n");
 
         }

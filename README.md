@@ -29,6 +29,24 @@ with name
 
 Where {index} will be incremented each time new file is created.
 
+<h3> Database connection </h3>
+
+
+Application is also connected with H2 in-memory database.
+
+Each time new request is made, it is saved to db. You can check it using this url:
+
+>http://localhost:8080/h2-console/
+
+JDBC URL should be as follows:
+
+>jdbc:h2:mem:testdb
+
+And credentials:
+>login: sa 
+
+>password: {should be empty}
+
 <h3>Author</h3>
 
 Piotr Boczar

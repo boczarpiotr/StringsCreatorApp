@@ -72,6 +72,6 @@ class StringsCreatorAppApplicationTests {
         ToManyWantedStringsException exception = Assertions.assertThrows(ToManyWantedStringsException.class, () -> {
             stringService.getRandomStringsOfChars(chars, min, max, noOfWantedStrings);
         });
-        Assertions.assertEquals("It is not possible to generate this many unique strings." , exception.getMessage());
+        Assertions.assertEquals("It is not possible to generate this many unique strings.", exception.getMessage());
     }
 }

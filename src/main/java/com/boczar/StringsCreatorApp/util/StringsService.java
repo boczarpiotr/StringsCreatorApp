@@ -1,7 +1,6 @@
 package com.boczar.StringsCreatorApp.util;
 
 import com.boczar.StringsCreatorApp.exceptions.ToManyWantedStringsException;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;

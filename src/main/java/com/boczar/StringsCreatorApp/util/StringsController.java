@@ -1,6 +1,7 @@
 package com.boczar.StringsCreatorApp.util;
 
 import com.boczar.StringsCreatorApp.model.Request;
+import com.boczar.StringsCreatorApp.repository.RequestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,11 +18,14 @@ public class StringsController {
     StringsService stringsService;
     @Autowired
     FileService fileService;
+    @Autowired
+    RequestRepository requestRepository;
 
     @PostMapping("/generate")
     public String startGenerating(@RequestBody String body) throws IOException {
         try {
             Request request = requestService.getRequestObjectOfJson(body);
+            requestRepository.save(request);
             Set<String> randomStringsOfChars = stringsService.getRandomStringsOfChars(request.getChars(), request.getMin(), request.getMax(), request.getNumberOfStrings());
             fileService.saveAllStringsToAFile(randomStringsOfChars);
         } catch (Exception e) {
