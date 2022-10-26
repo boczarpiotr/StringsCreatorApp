@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Service
-@Component
 public class RequestService {
     public Request getRequestObjectOfJson(String body) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();

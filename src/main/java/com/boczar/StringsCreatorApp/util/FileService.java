@@ -38,18 +38,6 @@ public class FileService {
         writer.close();
 
     }
-
-    public static void main(String[] args) throws IOException {
-        Set<String> stringSet = new HashSet<>();
-
-        stringSet.add("mleko");
-        stringSet.add("mlek32o");
-        stringSet.add("mlek3232o");
-
-        FileService fs = new FileService();
-        fs.saveAllStringsToAFile(stringSet);
-
-    }
 }
 
 

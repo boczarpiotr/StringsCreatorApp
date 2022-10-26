@@ -9,7 +9,6 @@ import java.util.Random;
 import java.util.Set;
 
 @Service
-@Component
 public class StringsService {
 
     public static int getNumberOfPossibleStrings(int min, int max, String chars) {
