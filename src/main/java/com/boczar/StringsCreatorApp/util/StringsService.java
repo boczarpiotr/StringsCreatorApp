@@ -1,6 +1,7 @@
 package com.boczar.StringsCreatorApp.util;
 
 import com.boczar.StringsCreatorApp.exceptions.ToManyWantedStringsException;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -8,6 +9,7 @@ import java.util.Random;
 import java.util.Set;
 
 @Service
+@Component
 public class StringsService {
 
     public static int getNumberOfPossibleStrings(int min, int max, String chars) {
@@ -23,7 +25,7 @@ public class StringsService {
         int numberOfPossibleStrings = getNumberOfPossibleStrings(min, max, chars);
 
         if (numberOfPossibleStrings < numberOfWantedStrings) {
-            throw new ToManyWantedStringsException("It is not possible to generate this many unique Strings");
+            throw new ToManyWantedStringsException("It is not possible to generate this many unique strings.");
         } else {
             Random random = new Random();
             Set<String> uniqueStrings = new HashSet<>();
