@@ -26,6 +26,15 @@ class StringsCreatorAppApplicationTests {
     }
 
     @Test
+    public void testIfMethodFor13abbbWillReturn14() {
+        int min = 1;
+        int max = 3;
+        String chars = "abbb";
+        int numberOfPossibleStrings = getNumberOfPossibleStrings(min, max, chars);
+        Assertions.assertEquals(14, numberOfPossibleStrings);
+    }
+
+    @Test
     public void testIfMethodFor23abWillReturn12() {
         int min = 2;
         int max = 3;

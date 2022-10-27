@@ -11,9 +11,14 @@ import java.util.Set;
 public class StringsService {
 
     public static int getNumberOfPossibleStrings(int min, int max, String chars) {
+        Set<Character> setWithoutDuplicates = new HashSet<>();
+        char[] charArray = chars.toCharArray();
+        for(char char1 : charArray){
+            setWithoutDuplicates.add(char1);
+        }
         int result = 0;
         for (int i = min; i <= max; i++) {
-            int pow = (int) Math.pow(chars.length(), i);
+            int pow = (int) Math.pow(setWithoutDuplicates.size(), i);
             result += pow;
         }
         return result;
